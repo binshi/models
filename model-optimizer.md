@@ -36,5 +36,32 @@ The models in the TensorFlow Object Detection Model Zoo can be used to even furt
 * TensorFlow also has additional models available in the [TensorFlow Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
   . By converting these over to Intermediate Representations, you can expand even further on the pre-trained models available to you.
 
+### Using the Model Optimizer with Caffe Models
+
+The process for converting a Caffe model is fairly similar to the TensorFlow one, although there’s nothing about freezing the model this time around, since that’s a TensorFlow concept. Caffe does have some differences in the set of supported model architectures. Additionally, Caffe models need to feed both the`.caffemodel`file, as well as a`.prototxt`file, into the Model Optimizer. If they have the same name, only the model needs to be directly input as an argument, while if the`.prototxt`file has a different name than the model, it should be fed in with`--input_proto`as well.
+
+### Further Research {#further-research}
+
+The developer documentation for Converting Caffe Models can be found[here](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_Caffe.html). You’ll work through this process in the next exercise.
+
+### Using the Model Optimizer with ONNX Models
+
+The process for converting an ONNX model is again quite similar to the previous two, although ONNX does not have any ONNX-specific arguments to the Model Optimizer. So, you’ll only have the general arguments for items like changing the precision.
+
+Additionally, if you are working with PyTorch or Apple ML models, they need to be converted to ONNX format first, which is done outside of the OpenVINO™ Toolkit. See the link further down on this page if you are interested in doing so.
+
+### Further Research {#further-research}
+
+* The developer documentation for Converting ONNX Models can be found
+  [here](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_ONNX.html)
+  . You’ll work through this process in the next exercise.
+* ONNX also has additional models available in the
+  [ONNX Model Zoo](https://github.com/onnx/models)
+  . By converting these over to Intermediate Representations, you can expand even further on the pre-trained models available to you.
+
+### PyTorch to ONNX {#pytorch-to-onnx}
+
+If you are interested in converting a PyTorch model using ONNX for use with the OpenVINO™ Toolkit, check out this[link](https://michhar.github.io/convert-pytorch-onnx/)for the steps to do so. From there, you can follow the steps for ONNX models to get an Intermediate Representation.
+
 
 
