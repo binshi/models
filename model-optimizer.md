@@ -30,7 +30,7 @@ TensorFlow models can vary for what additional steps are needed by model type, b
 
 The models in the TensorFlow Object Detection Model Zoo can be used to even further extend the pre-trained models available to you. These are in TensorFlow format, so they will need to be fed to the Model Optimizer to get an IR. The models are just focused on object detection with bounding boxes, but there are plenty of different model architectures available.
 
-### Further Research {#further-research}
+##### Further Research
 
 * The developer documentation for Converting TensorFlow Models can be found [here](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html)
 * TensorFlow also has additional models available in the [TensorFlow Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
@@ -40,7 +40,7 @@ The models in the TensorFlow Object Detection Model Zoo can be used to even furt
 
 The process for converting a Caffe model is fairly similar to the TensorFlow one, although there’s nothing about freezing the model this time around, since that’s a TensorFlow concept. Caffe does have some differences in the set of supported model architectures. Additionally, Caffe models need to feed both the`.caffemodel`file, as well as a`.prototxt`file, into the Model Optimizer. If they have the same name, only the model needs to be directly input as an argument, while if the`.prototxt`file has a different name than the model, it should be fed in with`--input_proto`as well.
 
-### Further Research {#further-research}
+##### Further Research
 
 The developer documentation for Converting Caffe Models can be found[here](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_Caffe.html). You’ll work through this process in the next exercise.
 
@@ -50,7 +50,7 @@ The process for converting an ONNX model is again quite similar to the previous 
 
 Additionally, if you are working with PyTorch or Apple ML models, they need to be converted to ONNX format first, which is done outside of the OpenVINO™ Toolkit. See the link further down on this page if you are interested in doing so.
 
-### Further Research {#further-research}
+##### Further Research
 
 * The developer documentation for Converting ONNX Models can be found
   [here](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_ONNX.html)
@@ -63,5 +63,19 @@ Additionally, if you are working with PyTorch or Apple ML models, they need to b
 
 If you are interested in converting a PyTorch model using ONNX for use with the OpenVINO™ Toolkit, check out this[link](https://michhar.github.io/convert-pytorch-onnx/)for the steps to do so. From there, you can follow the steps for ONNX models to get an Intermediate Representation.
 
+### Cutting Parts of a Model
 
+Cutting a model is mostly applicable for TensorFlow models. As we saw earlier in converting these models, they sometimes have some extra complexities. Some common reasons for cutting are:
+
+* The model has pre- or post-processing parts that don’t translate to existing Inference Engine layers.
+* The model has a training part that is convenient to be kept in the model, but is not used during inference.
+* The model is too complex with many unsupported operations, so the complete model cannot be converted in one shot.
+* The model is one of the supported SSD models. In this case, you need to cut a post-processing part off.
+* There could be a problem with model conversion in the Model Optimizer or with inference in the Inference Engine. To localize the issue, cutting the model could help to find the problem
+
+There’s two main command line arguments to use for cutting a model with the Model Optimizer, named intuitively as`--input`and`--output`, where they are used to feed in the layer names that should be either the new entry or exit points of the model.
+
+### Developer Documentation {#developer-documentation}
+
+You guessed it -[here’s](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_convert_model_Cutting_Model.html)the developer documentation for cutting a model.
 
