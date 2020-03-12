@@ -7,4 +7,5 @@
 * Classification
 * OpenVino
 * Links
+* [Model Optimizer](model-optimizer.md)
 
