@@ -2,8 +2,6 @@
 
 This file file serves as your book's preface, a great place to describe your book's content and ideas.
 
-
-
 #### Edge Application {#edge-application}
 
 Applications with inference run on local hardware, sometimes without network connections, such as Internet of Things \(IoT\) devices, as opposed to the cloud. Less data needs to be streamed over a network connection, and real-time decisions can be made.
@@ -70,6 +68,8 @@ Quantization is related to the topic of precision I mentioned before, or how man
 
 With the OpenVINO™ Toolkit, models usually default to FP32, or 32-bit floating point values, while FP16 and INT8, for 16-bit floating point and 8-bit integer values, are also available \(INT8 is only currently available in the Pre-Trained Models; the Model Optimizer does not currently support that level of precision\). FP16 and INT8 will lose some accuracy, but the model will be smaller in memory and compute times faster. Therefore, quantization is a common method used for running models at the edge.
 
+[https://nervanasystems.github.io/distiller/quantization.html](https://nervanasystems.github.io/distiller/quantization.html)
+
 ### Freezing {#freezing}
 
 Freezing in this context is used for TensorFlow models. Freezing TensorFlow models will remove certain operations and metadata only needed for training, such as those related to backpropagation. Freezing a TensorFlow model is usually a good idea whether before performing direct inference or converting with the Model Optimizer.
@@ -77,4 +77,18 @@ Freezing in this context is used for TensorFlow models. Freezing TensorFlow mode
 ### Fusion {#fusion}
 
 Fusion relates to combining multiple layer operations into a single operation. For example, a batch normalization layer, activation layer, and convolutional layer could be combined into a single operation. This can be particularly useful for GPU inference, where the separate operations may occur on separate GPU kernels, while a fused operation occurs on one kernel, thereby incurring less overhead in switching from one kernel to the next.
+
+### **Model Optimizer supported frameworks**
+
+The supported frameworks with the OpenVINO™ Toolkit are:
+
+* Caffe
+* TensorFlow
+* MXNet
+* ONNX \(which can support PyTorch and Apple ML models through another conversion step\)
+* Kaldi
+
+These are all open source, just like the OpenVINO™ Toolkit. Caffe is originally from UC Berkeley, TensorFlow is from Google Brain, MXNet is from Apache Software, ONNX is combined effort of Facebook and Microsoft, and Kaldi was originally an individual’s effort. Most of these are fairly multi-purpose frameworks, while Kaldi is primarily focused on speech recognition data.
+
+There are some differences in how exactly to handle these, although most differences are handled under the hood of the OpenVINO™ Toolkit. For example, TensorFlow has some different steps for certain models, or frozen vs. unfrozen models. However, most of the functionality is shared across all of the supported frameworks.
 
