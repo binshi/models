@@ -1,5 +1,35 @@
 ### Inference Engine
 
+#### Inference Engine {#inference-engine}
+
+Provides a library of computer vision functions, supports calls to other computer vision libraries such as OpenCV, and performs optimized inference on Intermediate Representation models. Works with various plugins specific to different hardware to support even further optimizations.
+
+#### Synchronous {#synchronous}
+
+Such requests wait for a given request to be fulfilled prior to continuing on to the next request.
+
+#### Asynchronous {#asynchronous}
+
+Such requests can happen simultaneously, so that the start of the next request does not need to wait on the completion of the previous.
+
+#### [IECore](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1IECore.html) {#iecore}
+
+The main Python wrapper for working with the Inference Engine. Also used to load an`IENetwork`, check the supported layers of a given network, as well as add any necessary CPU extensions.
+
+#### [IENetwork](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1IENetwork.html) {#ienetwork}
+
+A class to hold a model loaded from an Intermediate Representation \(IR\). This can then be loaded into an`IECore`and returned as an`Executable Network`.
+
+#### [ExecutableNetwork](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1ExecutableNetwork.html) {#executablenetwork}
+
+An instance of a network loaded into an`IECore`and ready for inference. It is capable of both synchronous and asynchronous requests, and holds a tuple of`InferRequest`objects.
+
+#### [InferRequest](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1InferRequest.html) {#inferrequest}
+
+Individual inference requests, such as image by image, to the Inference Engine. Each of these contain their inputs as well as the outputs of the inference request once complete.
+
+
+
 The Inference Engine runs the actual inference on a model. The Inference Engine runs the actual inference on a model. It only works with the Intermediate Representations that come from the Model Optimizer, or the Intel® Pre-Trained Models in OpenVINO™ that are already in IR format.
 
 Where the Model Optimizer made some improvements to size and complexity of the models to improve memory and computation times, the Inference Engine provides hardware-based optimizations to get even further improvements from a model. This really empowers your application to run at the edge and use up as little of device resources as possible.
