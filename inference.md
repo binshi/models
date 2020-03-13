@@ -24,17 +24,12 @@ Mostly, how the Inference Engine operates on one device will be the same as othe
 
 There are also some differences among supported layers by device, which is linked to at the bottom of this page. Another important one to note is regarding when you use an Intel® Neural Compute Stick \(NCS\). An easy, fairly low-cost method of testing out an edge app locally, outside of your own computer is to use the NCS2 with a Raspberry Pi. The Model Optimizer is not supported directly with this combination, so you may need to create an Intermediate Representation on another system first, although there are[some instructions](https://software.intel.com/en-us/articles/model-downloader-optimizer-for-openvino-on-raspberry-pi)for one way to do so on-device. The Inference Engine itself is still supported with this combination.
 
-
-
 ### `IECore`and`IENetwork` {#iecore-and-ienetwork}
 
 To load an IR into the Inference Engine, you’ll mostly work with two classes in the`openvino.inference_engine`library \(if using Python\):
 
-* `IECore`
-  , which is the Python wrapper to work with the Inference Engine
-* `IENetwork`
-  , which is what will initially hold the network and get loaded into
-  `IECore`
+* `IECore`, which is the Python wrapper to work with the Inference Engine
+* `IENetwork`, which is what will initially hold the network and get loaded into`IECore`
 
 The next step after importing is to set a couple variables to actually use the IECore and IENetwork. In the[IECore documentation](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1IECore.html), no arguments are needed to initialize. To use[IENetwork](https://docs.openvinotoolkit.org/2019_R3/classie__api_1_1IENetwork.html), you need to load arguments named`model`and`weights`to initialize - the XML and Binary files that make up the model’s Intermediate Representation.
 
