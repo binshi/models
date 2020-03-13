@@ -8,4 +8,5 @@
 * OpenVino
 * Links
 * [Model Optimizer](model-optimizer.md)
+* [Inference](inference.md)
 
