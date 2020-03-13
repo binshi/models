@@ -104,3 +104,13 @@ An`ExecutableNetwork`contains an`InferRequest`attribute by the name of`requests`
 
 From within this`InferRequest`object, it has an attribute of`outputs`from which you can use your`output_blob`to get the results of that inference request.
 
+### Further Research {#further-research}
+
+There’s a ton of great potential edge applications out there for you to build. Here are some examples to hopefully get you thinking:
+
+* [Intel®’s IoT Apps Across Industries](https://www.intel.com/content/www/us/en/internet-of-things/industry-solutions.html)
+* [Starting Your First IoT Project](https://hackernoon.com/the-ultimate-guide-to-starting-your-first-iot-project-8b0644fbbe6d)
+* [OpenVINO™ on a Raspberry Pi and Intel® Neural Compute Stick](https://www.pyimagesearch.com/2019/04/08/openvino-opencv-and-movidius-ncs-on-the-raspberry-pi/)
+
+
+
