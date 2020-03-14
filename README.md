@@ -87,22 +87,46 @@ There’s a lot of uses of OpenCV. In your case, you’ll largely focus on its a
 ### Useful OpenCV function {#useful-opencv-function}
 
 * `VideoCapture`
-  - can read in a video or image and extract a frame from it for processing
+  * can read in a video or image and extract a frame from it for processing
 * `resize`
   is used to resize a given frame
 * `cvtColor`
   can convert between color spaces.
   * You may remember from awhile back that TensorFlow models are usually trained with RGB images, while OpenCV is going to load frames as BGR. There was a technique with the Model Optimizer that would build the TensorFlow model to appropriately handle BGR. If you did not add that additional argument at the time, you could use this function to convert each image to RGB, but that’s going to add a little extra processing time.
 * `rectangle`
-  - useful for drawing bounding boxes onto an output image
+  * useful for drawing bounding boxes onto an output image
 * `imwrite`
-  - useful for saving down a given image
+  * useful for saving down a given image
 
 See the link further down below for more tutorials on OpenCV if you want to dive deeper.
 
 ### Further Research {#further-research}
 
 OpenCV has some[pretty extensive tutorials](https://docs.opencv.org/master/d9/df8/tutorial_root.html)available if you want to dive deeper into this useful computer vision library. We'll look at some of the relevant material on handling camera and video inputs next.
+
+### Handling input streams
+
+Being able to efficiently handle video files, image files, or webcam streams is an important part of an edge application. If I were to be running the webcam on my Macbook for instance and performing inference, a surprisingly large amount of resources get used up simply to use the webcam. That’s why it’s useful to utilize the OpenCV functions built for this - they are about as optimized for general use with input streams as you will find.
+
+### Open & Read A Video {#open-read-a-video}
+
+We saw the`cv2.VideoCapture`function in the previous video. This function takes either a zero for webcam use, or the path to the input image or video file. That’s just the first step, though. This “capture” object must then be opened with`capture.open`.
+
+Then, you can basically make a loop by checking if`capture.isOpened`, and you can read a frame from it with`capture.read`. This`read`function can actually return two items, a boolean and the frame. If the boolean is false, there’s no further frames to read, such as if the video is over, so you should`break`out of the loop
+
+### Closing the Capture {#closing-the-capture}
+
+Once there are no more frames left to capture, there’s a couple of extra steps to end the process with OpenCV.
+
+* First, you’ll need to
+  `release`
+  the capture, which will allow OpenCV to release the captured file or stream
+* Second, you’ll likely want to use
+  `cv2.destroyAllWindows`
+  . This will make sure any additional windows, such as those used to view output frames, are closed out
+* Additionally, you may want to add a call to
+  `cv2.waitKey`
+  within the loop, and break the loop if your desired key is pressed. For example, if the key pressed is 27, that’s the Escape key on your keyboard - that way, you can close the stream midway through with a single button. Otherwise, you may get stuck with an open window that’s a bit difficult to close on its own.
 
 
 
