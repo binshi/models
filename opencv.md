@@ -65,7 +65,6 @@ If you have a`ffmpeg`folder containing the configuration file for the server, yo
 sudo ffserver 
 -f
  ./ffmpeg/server.conf
-
 ```
 
 From there, you need to actually pipe the information from the Python script to FFmpeg. To do so, you add the`|`symbol after the python script \(as well as being after any related arguments to that script, such as the model file or CPU extension\), followed by`ffmpeg`and any of its related arguments.
@@ -74,10 +73,13 @@ For example:
 
 ```
 python app.py -m “model.xml” | ffmpeg -framerate 24
-
 ```
 
 And so on with additional arguments before or after the pipe symbol depending on whether they are for the Python application or for FFmpeg.
 
 
+
+[Node.js](https://nodejs.org/en/about/) is an open-source environment for servers, where Javascript can be run outside of a browser. Consider a social media page, for instance - that page is going to contain different content for each different user, based on their social network. Node allows for Javascript to run outside of the browser to gather the various relevant posts for each given user, and then send those posts to the browser.
+
+In our case, a Node server can be used to handle the data coming in from the MQTT and FFmpeg servers, and then actually render that content for a web page user interface.
 
