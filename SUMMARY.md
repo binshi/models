@@ -9,5 +9,5 @@
 * Links
 * [Model Optimizer](model-optimizer.md)
 * [Inference](inference.md)
-* OpenCV
+* [OpenCV](opencv.md)
 
