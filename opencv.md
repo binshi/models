@@ -93,3 +93,10 @@ The considerations of speed, size and network impacts are still very important f
 
 Lastly, there can be other differences in cloud vs edge costs other than just network effects. While potentially lower up front, cloud storage and computation costs can add up over time. Data sent to the cloud could be intercepted along the way. Whether this is better or not at the edge does depend on a secure edge device, which isn’t always the case for IoT.
 
+### Further Research {#further-research}
+
+* We'll cover more on performance with the Intel® Distribution of OpenVINO™ Toolkit in later courses, but you can check out the [developer docs](https://docs.openvinotoolkit.org/2019_R3/_docs_IE_DG_Intro_to_Performance.html) here for a preview.
+* Did you know [Netflix uses 15% of worldwide bandwidth](https://www.sandvine.com/hubfs/downloads/phenomena/phenomena-presentation-final.pdf) with its video streaming? Cutting down on streaming your video to the cloud vs. performing work at the edge can vastly cut down on network costs.
+
+
+
