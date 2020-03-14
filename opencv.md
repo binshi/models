@@ -1,3 +1,39 @@
+#### OpenCV {#opencv}
+
+A computer vision \(CV\) library filled with many different computer vision functions and other useful image and video processing and handling capabilities.
+
+#### MQTT {#mqtt}
+
+A publisher-subscriber protocol often used for IoT devices due to its lightweight nature. The`paho-mqtt`library is a common way of working with MQTT in Python.
+
+#### Publish-Subscribe Architecture {#publish-subscribe-architecture}
+
+A messaging architecture whereby it is made up of publishers, that send messages to some central broker, without knowing of the subscribers themselves. These messages can be posted on some given “topic”, which the subscribers can then listen to without having to know the publisher itself, just the “topic”.
+
+#### Publisher {#publisher}
+
+In a publish-subscribe architecture, the entity that is sending data to a broker on a certain “topic”.
+
+#### Subscriber {#subscriber}
+
+In a publish-subscribe architecture, the entity that is listening to data on a certain “topic” from a broker.
+
+#### Topic {#topic}
+
+In a publish-subscribe architecture, data is published to a given topic, and subscribers to that topic can then receive that data.
+
+#### FFmpeg {#ffmpeg}
+
+Software that can help convert or stream audio and video. In the course, the related`ffserver`software is used to stream to a web server, which can then be queried by a Node server for viewing in a web browser.
+
+#### Flask {#flask}
+
+A[Python framework](https://www.fullstackpython.com/flask.html)useful for web development and another potential option for video streaming to a web browser.
+
+#### Node Server {#node-server}
+
+A web server built with Node.js that can handle HTTP requests and/or serve up a webpage for viewing in a browser.
+
 Training neural networks focuses a lot on accuracy, such as detecting the right bounding boxes and having them placed in the right spot. But what should you actually do with bounding boxes, semantic masks, classes, etc.? How would a self-driving car make a decision about where to drive based solely off the semantic classes in an image?
 
 It’s important to get useful information from your model - information from one model could even be further used in an additional model, such as traffic data from one set of days being used to predict traffic on another set of days, such as near to a sporting event.
