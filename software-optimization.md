@@ -89,5 +89,38 @@ In the case of an Edge AI system, we want to measure two kinds of performance:
 * **Hardware Performance**
   : This is used to understand the properties of the device our model is running on. For instance, power consumption is a hardware metric that can be used to decide the size of battery our system will require.
 
+![](/assets/Screenshot 2020-03-22 at 6.03.47 PM.png)
 
+![](/assets/Screenshot 2020-03-22 at 6.05.53 PM.png)
+
+| Operation |
+| :--- |
+
+
+|  | Energy \[pJ\] | Relative Cost |
+| :--- | :--- | :--- |
+| 32 bit int ADD | 0.1 | 1 |
+| 32 bit float ADD | 0.9 | 9 |
+| 32 bit Register File | 1 | 10 |
+| 32 bit int MULT | 3.1 | 31 |
+| 32 bit float MULT | 3.7 | 37 |
+| 32 bit SRAM Cache | 5 | 50 |
+| **32 bit DRAM Memory** | **640** | **6400** |
+
+_Energy table for 45nm CMOS process._  
+Adapted from Figure 1 of [Learning both Weights and Connections for Efficient Neural Networks \(Han et al., 2015\)](https://arxiv.org/pdf/1506.02626.pdf).
+
+From the table, you can see that the energy taken to access memory is far greater than to perform operations. This is why we need to reduce the size of our model.
+
+## Latency and Throughput {#latency-and-throughput}
+
+Latency and throughput are closely related metrics but_not_the same thing.
+
+> **Latency**is the time taken from when an image is available for inference until the result for that image is produced.
+
+> **Throughput**is the amount of data that is processed in a given interval of time.
+
+![](/assets/Screenshot 2020-03-22 at 6.14.34 PM.png)
+
+![](/assets/Screenshot 2020-03-22 at 6.15.02 PM.png)
 
