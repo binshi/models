@@ -64,5 +64,5 @@ Broadly speaking, there are two ways to optimize our model, based on how the mod
 * **Reduce the size of the model**: This will reduce the time it takes to load the model and perform inference by removing unimportant or redundant parameters from our network.
 * **Reduce the number of operations**: This will reduce the time taken to perform inference by reducing the number of operations or calculations needed to execute the network. This can be done by using more efficient layers and by removing connections in between neurons in our model.
 
-
+Not all the algorithms mentioned only have one of the desired effects. For instance, while using separable convolutions reduces the number of operations we need to perform, a side-effect is that it also reduces the size of our model \(we will talk more about how it does that in the next lesson\). In later lessons, you will also see how we can further optimize our model by combining multiple techniques.
 
