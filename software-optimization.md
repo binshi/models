@@ -66,8 +66,6 @@ Broadly speaking, there are two ways to optimize our model, based on how the mod
 
 Not all the algorithms mentioned only have one of the desired effects. For instance, while using separable convolutions reduces the number of operations we need to perform, a side-effect is that it also reduces the size of our model \(we will talk more about how it does that in the next lesson\). In later lessons, you will also see how we can further optimize our model by combining multiple techniques.
 
-
-
 ![](/assets/Screenshot 2020-03-22 at 5.52.36 PM.png)
 
 ![](/assets/Screenshot 2020-03-22 at 5.54.44 PM.png)
@@ -77,4 +75,19 @@ Not all the algorithms mentioned only have one of the desired effects. For insta
 ![](/assets/Screenshot 2020-03-22 at 5.56.31 PM.png)
 
 ![](/assets/Screenshot 2020-03-22 at 5.59.04 PM.png)
+
+# Performance Metrics {#performance-metrics}
+
+So far in the course we have mentioned that software optimization helps increase performance, and also introduced a few algorithms that can be used to improve performance. However, performance is a very vague term. In this concept, we will learn some of the key metrics that we can use to measure the performance of our model.
+
+> A**metric**is a quantity or an attribute of a system that can be measured. A metric should help us infer useful information about a system.
+
+In the case of an Edge AI system, we want to measure two kinds of performance:
+
+* **Software Performance**
+  : This is used to understand the properties of our model and application. Model accuracy is a good example of a metric used to measure software performance.
+* **Hardware Performance**
+  : This is used to understand the properties of the device our model is running on. For instance, power consumption is a hardware metric that can be used to decide the size of battery our system will require.
+
+
 
