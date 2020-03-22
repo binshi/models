@@ -66,3 +66,15 @@ Broadly speaking, there are two ways to optimize our model, based on how the mod
 
 Not all the algorithms mentioned only have one of the desired effects. For instance, while using separable convolutions reduces the number of operations we need to perform, a side-effect is that it also reduces the size of our model \(we will talk more about how it does that in the next lesson\). In later lessons, you will also see how we can further optimize our model by combining multiple techniques.
 
+
+
+![](/assets/Screenshot 2020-03-22 at 5.52.36 PM.png)
+
+![](/assets/Screenshot 2020-03-22 at 5.54.44 PM.png)
+
+![](/assets/Screenshot 2020-03-22 at 5.55.42 PM.png)
+
+![](/assets/Screenshot 2020-03-22 at 5.56.31 PM.png)
+
+![](/assets/Screenshot 2020-03-22 at 5.59.04 PM.png)
+
