@@ -10,4 +10,5 @@
 * [Model Optimizer](model-optimizer.md)
 * [Inference](inference.md)
 * [OpenCV](opencv.md)
+* [Software Optimization](software-optimization.md)
 
