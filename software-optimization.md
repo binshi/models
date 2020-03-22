@@ -114,13 +114,49 @@ From the table, you can see that the energy taken to access memory is far greate
 
 ## Latency and Throughput {#latency-and-throughput}
 
-Latency and throughput are closely related metrics but_not_the same thing.
+Latency and throughput are closely related metrics but\_not\_the same thing.
 
 > **Latency**is the time taken from when an image is available for inference until the result for that image is produced.
-
+>
 > **Throughput**is the amount of data that is processed in a given interval of time.
 
 ![](/assets/Screenshot 2020-03-22 at 6.14.34 PM.png)
 
 ![](/assets/Screenshot 2020-03-22 at 6.15.02 PM.png)
+
+Some other Performance Metrics
+
+In the last section we saw some of the important metrics that need to be optimized for an edge computing project. In this section, we will look at some other metrics that are also worth keeping in mind when designing your edge computing system.
+
+![](/assets/Screenshot 2020-03-22 at 6.20.50 PM.png)
+
+## FLOPs {#flops}
+
+One way to measure inference time for your model is to calculate the total number of computations the model will have to perform. And a common metric for measuring the number of computations is the_FLOP_.
+
+> Any operation on a float value is called a**F**loating**P**oint**O**peration or**FLOP**.
+
+This could be an addition, subtraction, division, multiplication, or—again—any operation that involves a floating point value. By calculating the total**FLOPs**\(**F**loating**P**oint**O**peration**s**\) in a model, we can get a rough estimate of how computationally complex our model is and how long it might take to run an inference on that model.
+
+## MACs {#macs}
+
+Computations in neural networks typically involve a_multiplication_and then an_addition_. For instance, in a dense layer, we_multiply_the activation of a neuron with the weight for that neuron connection and then_add_it to another similar product:
+
+Layer\_{output} = W\_{1}\*A\_{1}+W\_{2}\*A\_{2}+...+W\_{n}\*A\_{n}Layeroutput​=W1​∗A1​+W2​∗A2​+...+Wn​∗An​
+
+> Since these operations involve performing a**multiplication**and then an**addition**, they are called**M**ultiply-**Ac**cumulate operation**s**or simply**MACs**.
+
+Since each MAC involves two operations \(a multiplication and an addition\), this means that we can generally think of one MAC as involving two FLOPs:
+
+> 1 MAC = 2 FLOPs
+
+Actually, in some hardware \(especially hardware that is optimized for running many MACs\), the multiplication and addition are fused into a single operation. But for the purposes of this course, we'll assume the above \(1 MAC = 2 FLOPs\) is true when performing calculations.
+
+# When do we do Software Optimization? {#when-do-we-do-software-optimization-}
+
+Before you actually do software optimization, it is important to know when it will not give you the results you are looking for.
+
+> _Premature optimization is the root of all evil_- Donald Knuth
+
+
 
