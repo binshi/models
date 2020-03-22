@@ -55,16 +55,14 @@ And the second approach is _software optimization_:
 
 # Types of Software Optimization {#types-of-software-optimization}
 
-In most deep learning applications, loading and performing inference on a model takes up the most time. For this reason, many of the techniques that have been developed \(and many that we'll discuss in this course\) focus on**model optimization**.
+In most deep learning applications, loading and performing inference on a model takes up the most time. For this reason, many of the techniques that have been developed \(and many that we'll discuss in this course\) focus on **model optimization**.
 
 > **Note:**Unless otherwise specified, whenever we talk about software optimization in this course, we are referring to optimizing the**model**and**not**the code.
 
 Broadly speaking, there are two ways to optimize our model, based on how the model is changed. We can:
 
-* **Reduce the size of the model**
-  : This will reduce the time it takes to load the model and perform inference by removing unimportant or redundant parameters from our network.
-* **Reduce the number of operations**
-  : This will reduce the time taken to perform inference by reducing the number of operations or calculations needed to execute the network. This can be done by using more efficient layers and by removing connections in between neurons in our model.
+* **Reduce the size of the model**: This will reduce the time it takes to load the model and perform inference by removing unimportant or redundant parameters from our network.
+* **Reduce the number of operations**: This will reduce the time taken to perform inference by reducing the number of operations or calculations needed to execute the network. This can be done by using more efficient layers and by removing connections in between neurons in our model.
 
 
 
