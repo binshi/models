@@ -114,12 +114,16 @@ The shape for a single dimension will be = \(28-3\)+1 = 26
 So our output shape will be 26x26  
 Because we have 1 input channel, our actual output shape will be 1x26x26
 
+MAC =&gt; \[Total number of kernels\(1\) \* shape of our output\(26x26\) \* shape of our kernel\(3x3x1\)\] \* For FLOPS\(2\)
+
 FLOPs: 1x26x26x3x3x1x2 = 12,168
 
 Pointwise Layer:  
 Input Shape = 1x26x26  
 No. of kernels = 10  
 Output Shape = 10x26x26
+
+MAC =&gt; \[Total number of kernels\(10\) \* shape of our output\(26x26\) \* shape of our kernel\(1x1x1\)\] \* For FLOPS\(2\)
 
 FLOPs: 10x1x1x1x26x26 = 6,760
 
@@ -160,4 +164,21 @@ Input Shape: 128
 Output Shape: 10
 
 FLOPS: 128x10x2 = 2560
+
+# Model Pruning {#model-pruning}
+
+Neural networks are usually trained with a lot of layers and parameters. Often times, many of these parameters and weights are redundant and do not contribute much to the accuracy of the network. Removing these weights can help us improve performance without affecting our accuracy.
+
+> **Pruning **is a model compression technique where redundant network parameters are removed while trying to preserve the original accuracy \(or other metric\) of the network
+
+![](/assets/Screenshot 2020-03-23 at 3.03.45 PM.png)
+
+A simple technique to perform model pruning to reduce redundant weights. Reducing weights reduces the memory requirements of our model and can also reduce the computation requirements. However, the reduction in FLOPS is a by-product of reducing weights, and the reduction was not done intentionally.
+
+In case you'd like to check them out, here are the papers referenced in the video:
+
+* [Learning both Weights and Connections for Efficient Neural Networks \(Han et al., 2015\)](https://video.udacity-data.com/topher/2020/March/5e6d3f98_learning-both-weights-and-connections-for-efficient-neural-networks/learning-both-weights-and-connections-for-efficient-neural-networks.pdf)
+* [Designing Energy-Efficient Convolutional Neural Networks using Energy-Aware Pruning \(Yang et al., 2017\)](https://video.udacity-data.com/topher/2020/March/5e6d3fb6_designing-energy-efficient-convolutional-neural-networks-using-energy-aware-pruning/designing-energy-efficient-convolutional-neural-networks-using-energy-aware-pruning.pdf)
+
+
 
