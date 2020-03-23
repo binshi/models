@@ -32,3 +32,5 @@ For example, if we say "100 FLOPs", we are simply referring to the number of ope
 
 ![](/assets/Screenshot 2020-03-23 at 8.46.40 AM.png)
 
+![](/assets/Screenshot 2020-03-23 at 9.00.02 AM.png)
+
