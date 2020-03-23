@@ -16,7 +16,7 @@ How to measure the performance of our model
 
 Hardware devices are typically rated for the number of Floating Point Operations \(FLOPs\) they can perform in a _second_.
 
-> This is referred to as **F**loating**P**oint**O**perations per **S**econd or **FLOPS**.
+> This is referred to as **F**loating **P**oint **O**perations per **S**econd or **FLOPS**.
 
 It is easy to get _FLOPs_\(with a lower-case "s"\) confused with _FLOPS_\(with a capital "S"\).
 
