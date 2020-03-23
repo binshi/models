@@ -44,7 +44,7 @@ Number of kernels: 10
 
 Output shape: The shape for a single dimension will be = \(28-3\)+1 = 26 So our output shape will be 26x26 Because we have 10 kernels, our actual output shape will be 10x26x26
 
-MAC =&gt; \[Total number of kernels\(10\) \* shape of our output\(26x26\) \* shape of our kernel\(3x3x1\)\] \* For FLOPS\(2\) 
+MAC =&gt; \[Total number of kernels\(10\) \* shape of our output\(26x26\) \* shape of our kernel\(3x3x1\)\] \* For FLOPS\(2\)
 
 FLOPS: 10x26x26x3x3x1x2 = 121,680
 
@@ -84,4 +84,10 @@ Output Shape: 10
 FLOPS: 128x10x2 = 2560
 
 Total FLOPS: 121680+6760+108900+154880+2560 = 394,780
+
+# Using Efficient Layers: Separable Convolutions {#using-efficient-layers-separable-convolutions}
+
+We just saw how to reduce the number of parameters flowing through our model by using pooling layers. Pooling layers allow us to reduce the operations in our model without using too many FLOPs. But at the same time, a lot of data gets lost.
+
+While using pooling layers does solve the problem of having a lot of parameters, it does not attack the problem at its source: the convolutional layer. On this page, we will see how we can reduce the number of operations in a convolutional layer without changing the input and output shape of the layer.
 
