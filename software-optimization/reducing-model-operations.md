@@ -101,3 +101,63 @@ In this first depthwise convolution is applied and then pointwise convolutions i
 
 ![](/assets/Screenshot 2020-03-23 at 10.20.45 AM.png)
 
+## Task 1: Calculate Model FLOPS {#Task-1:-Calculate-Model-FLOPS}
+
+#### Layer 1: Separable Conv2D {#Layer-1:-Separable-Conv2D}
+
+Input shape: 1x1x28x28  
+Kernel shape: 3x3  
+Number of kernels: 10
+
+Depthwise Layer:  
+The shape for a single dimension will be = \(28-3\)+1 = 26  
+So our output shape will be 26x26  
+Because we have 1 input channel, our actual output shape will be 1x26x26
+
+FLOPs: 1x26x26x3x3x1x2 = 12,168
+
+Pointwise Layer:  
+Input Shape = 1x26x26  
+No. of kernels = 10  
+Output Shape = 10x26x26
+
+FLOPs: 10x1x1x1x26x26 = 6,760
+
+Total FLOPs: 12168+6760 = 18,928
+
+#### Layer 2: Separable Conv2D {#Layer-2:-Separable-Conv2D}
+
+Input shape: 10x26x26  
+Kernel shape: 3x3  
+Number of kernels: 5
+
+Depthwise Layer:  
+The shape for a single dimension will be = \(26-3\)+1 = 24  
+So our output shape will be 24x24  
+Because we have 10 input channel, our actual output shape will be 10x26x26
+
+FLOPs: 10x24x24x3x3x1x2 = 103,680
+
+Pointwise Layer:  
+Input Shape = 10x24x24  
+No. of kernels = 5  
+Output Shape = 5x24x24
+
+FLOPs: 5x1x1x10x24x24 = 28,800
+
+Total FLOPs = 103680 + 28800 = 132,480
+
+#### Layer 3: Fully Connected {#Layer-3:-Fully-Connected}
+
+Number of neurons: 128
+
+Input shape: 24x24x5: 2880  
+FLOPs: 2880x128x2 = 737,280
+
+#### Layer 4: Fully Connected {#Layer-4:-Fully-Connected}
+
+Input Shape: 128  
+Output Shape: 10
+
+FLOPS: 128x10x2 = 2560
+
