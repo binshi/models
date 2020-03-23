@@ -91,6 +91,8 @@ We just saw how to reduce the number of parameters flowing through our model by 
 
 While using pooling layers does solve the problem of having a lot of parameters, it does not attack the problem at its source: the convolutional layer. On this page, we will see how we can reduce the number of operations in a convolutional layer without changing the input and output shape of the layer.
 
+In this first depthwise convolution is applied and then pointwise convolutions is applied
+
 ![](/assets/Screenshot 2020-03-23 at 10.15.29 AM.png)
 
 ![](/assets/Screenshot 2020-03-23 at 10.15.46 AM.png)
