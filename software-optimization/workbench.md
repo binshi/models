@@ -26,7 +26,7 @@ Give docker command sudo powers
 
 ```
 [ec2-user]$ sudo usermod -a -G docker ec2-user
-[ec2-user]$ exit 
+[ec2-user]$ exit
 ```
 
 Launch workbench docker
@@ -46,11 +46,7 @@ That said, the simplest form of quantization is**weight quantization**, in which
 
 In the video, we will see one way in which this can be done. We will be quantizing some value to an unsigned INT8 \(or uint8\) range. The range of values in uint8 is from 0 to 2^8-1, which is 255.
 
-
-
 ![](/assets/Screenshot 2020-03-24 at 9.13.52 AM.png)
-
-
 
 To summarize, to map the weight values, we need to know:
 
@@ -61,4 +57,39 @@ To summarize, to map the weight values, we need to know:
 The quantization method discussed in the video is one of the simplest methods to quantize a neural network, but, as we saw, it has some limitations. Since then, many other quantization techniques have been proposed. If you're interested in learning more, we recommend checking out the paper,[A Survey on Methods and Theories of Quantized Neural Networks](https://arxiv.org/pdf/1808.04752.pdf)by Yunhui Guo, in which he goes over some of these techniques.
 
 OpenVINO uses MKL-DNN, a math kernel library, to quantize their neural networks. You can find information about their quantization workflow[here](https://intel.github.io/mkl-dnn/ex_int8_simplenet.html).
+
+# Model Compression {#model-compression}
+
+One important—but often forgotten—metric that we should optimize is memory. We can do this using_model compression_.
+
+> **Model compression**refers to a group of algorithms that help us reduce the amount of memory needed to store our model, and also make our models more compact \(in terms of the number of parameters\).
+
+In fact, you have already learned about a model-compression algorithm, quantization, where we reduce the number of bits required to represent each weight.
+
+## Weight Sharing {#weight-sharing}
+
+Another way to compress our model is to reduce the number of weights that we store. This is known as_weight sharing_.
+
+> In**weight sharing**, the goal is for multiple weights to share the same value. This reduces the number of unique weights that need to be stored, thus saving memory and reducing model size.
+
+Here are the articles we referenced in the video, in case you want to check them out:
+
+* [Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding \(Han et al., 2016\)](https://video.udacity-data.com/topher/2020/March/5e6e9c50_deep-compression-compressing-deep-neural-networks-with-pruning-trained-quantization-and-huffman-coding/deep-compression-compressing-deep-neural-networks-with-pruning-trained-quantization-and-huffman-coding.pdf)
+* [Compressing Neural Networks with the Hashing Trick \(Chen et al, 2015\)](https://video.udacity-data.com/topher/2020/March/5e6e9c9f_compressing-neural-networks-with-the-hashing-trick/compressing-neural-networks-with-the-hashing-trick.pdf)
+
+# Knowledge Distillation {#knowledge-distillation}
+
+_Knowledge distillation_is a relatively newer technique to perform model compression.
+
+> **Knowledge distillation**is a method where we try to transfer the knowledge learned by a large, accurate model \(the_teacher_model\) to a smaller and computationally less expensive model \(the_student_model\).
+
+Through knowledge distillation, the student model can achieve nearly the same accuracies as the teacher model by mimicking the internal representation learned by the teacher.
+
+* Knowledge Distillation is simple, but recent works have shown that it can be a very powerful method of learning. In a recent paper, researchers showed that by making some small changes to the knowledge distillation algorithm, they could improve the Top-1% Accuracy on ImageNet by 2% over the state of the art while using a model with 349M fewer parameters! If you're curious, you can check out the full paper here:
+
+  * [Self-training with Noisy Student improves ImageNet classification \(Xie et al., 2020\)](https://video.udacity-data.com/topher/2020/March/5e6ea044_self-training-with-noisy-student-improves-imagenet-classification/self-training-with-noisy-student-improves-imagenet-classification.pdf)
+
+  Note that the aim of the authors was actually_not_to compress a model, but to improve accuracy. The reduction in parameters came from using the_EfficientNet_architecture.
+
+
 
