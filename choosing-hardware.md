@@ -22,3 +22,16 @@ We'll discuss not only the specifications for these hardware types, but also:
 
 Finally, we will introduce the[Intel DevCloud](https://devcloud.intel.com/edge/)for the edge, where you can test your application on a large range of hardware, including various CPUs, GPUs, VPUs, and a FPGA. Using the DevCloud will allow you to determine which hardware types best fit your needs and budget.
 
+Choosing the best hardware for our edge computing system
+
+* * Development system
+  * Deployment system
+* Product development flow
+* Choosing an AI Model
+* Basic Terminology
+  * CPUs
+  * AI Accelerators
+* Intel DevCloud for the Edge
+
+
+
