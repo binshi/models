@@ -14,4 +14,5 @@
   * [Reducing Model Operations](software-optimization/reducing-model-operations.md)
   * [Reducing Model Size](software-optimization/reducing-model-size.md)
   * [Workbench](software-optimization/workbench.md)
+* [Choosing hardware](choosing-hardware.md)
 
