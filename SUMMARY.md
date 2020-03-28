@@ -15,4 +15,5 @@
   * [Reducing Model Size](software-optimization/reducing-model-size.md)
   * [Workbench](software-optimization/workbench.md)
 * [Choosing hardware](choosing-hardware.md)
+  * [CPU - GPU](choosing-hardware/cpu-gpu.md)
 
