@@ -5,6 +5,7 @@
 * The characteristics of the Myriad-X processor \(which is a type of VPU\)
 
 * The characteristics of the Neural Compute Stick 2 \(which uses the Myriad-X Processor\)
+
 * How to access the NCS2 on the DevCloud
 * How to run the same model on multiple devices at once using the Mult Device Plugin
 * How to use the Multi Device Plugin on the DevCloud
@@ -19,6 +20,8 @@ The Neural Compute Stick is an accelerator and cannot run on it's own. It needs 
    A interface Unit is a part of the VPU that interacts with the Host device. This device could be a CPU or any other processing device. We would train our machine learning models on the Host Device and then run the inference on the VPU.
 3. **Hardware Accelerators:**
    The Hardware Accelerator has specific kernels which are used for image processing operations. These operations can include simple techniques of denoising to even algorithms for edge detection in images. 
+
+
 
 ![](/assets/Screenshot 2020-03-28 at 5.12.41 PM.png)The Characteristics of a **Myriad X** Processor Includes
 
@@ -50,8 +53,6 @@ The Characteristics of a Myriad X Processor Includes
 * **Frameworks Supported**: Myriad 2 processors The chip supports only CAFE framework whereas the Myriad X chip supports Tensorflow
 * **Energy Consumption**: With all these features, this chip has only a moderate increase in clock speed with little increase in overall power consumption
 
-video content
-
 | Type | Myriad 2 Processor | Myriad X Processor |
 | :--- | :--- | :--- |
 | Vector Processors | 12 | 16 |
@@ -61,5 +62,14 @@ video content
 | Operating Frequency |  |  |
 | Hardware Used In | Intel NCS Stick | Intel NCS Stick2 |
 
+# Intel Neural Compute Stick {#intel-neural-compute-stick}
 
+The Intel Neural Compute Stick 2 or the Intel NCS2 is a plug and play development kit for AI Inferencing. The following are the product features of the Intel NCS2 stick.
+
+* **VPU**: The VPU supported by Intel NCS2 stick is Myriad X Processor, that we learnt about in the concept before.It provides SoC implementation of the Myriad X Processor
+* **Software development kit**: With the integration of OpenVino Toolkit the Intel NCS2 offers pre-trained models to be run on the stick. This allows ease in the use of the hardware
+* **Operating System**: Currently the Intel NCS2 stick supports the Ubuntu _16.04.3 LTS \(64 bit\), Windows® 10 \(64 bit\), or CentOS_
+  7.4 \(64 bit\).
+
+All of these features come in a small size of 72.5mm X 27mm X 14mm with the looks of standard thumb drive making it ideal for an easy plug-in into CPU, Raspberry Pi or any computing device with a USB port
 
