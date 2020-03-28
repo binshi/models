@@ -121,23 +121,16 @@ In this section, we will learn about the integrated GPU. In this type of computi
 
 The architecture of Integrated GPUs. In short, they are:
 
-1. **Execution Unit**
-   : They are compute processors optimised for multi-threading.
-2. **Slice**
-   : Slice is a collection of 24 EUs.
-3. **Unslice**
-   : This is the part of the CPU that supports media functions like MFX and VQE
+1. **Execution Unit**: They are compute processors optimised for multi-threading.
+2. **Slice**: Slice is a collection of 24 EUs.
+3. **Unslice**: This is the part of the CPU that supports media functions like MFX and VQE
 
 The characteristics of the Integrated GPU are:
 
-1. **Configurable Power Supply**
-   : The slice section in a GPU can run at a different clock rate that the unslice section. This means that unused sections in a GPU can be powered down to reduce power consumption
-2. **Model Precision**
-   : GPUs use FP16 model precision. Using half the precision that CPUs run on \(FP32\), GPUs can be faster since twice as many operands can be processed at the same time.
-3. **Shared Components**
-   : Since the CPU and Int. GPU is present on the same die, they share the same system memory, higher-level caches and a memory controller. This reduces memory latency by speeding up data transfer between the two devices
-4. **Applications of Computer Vision**
-   : One of the broad areas of application in deep learning is Image and Video Processing. The ability to provide a specific chip to perform operations targeted to such use cases helps the system to increase the overall performance
+1. **Configurable Power Supply**: The slice section in a GPU can run at a different clock rate that the unslice section. This means that unused sections in a GPU can be powered down to reduce power consumption
+2. **Model Precision**: GPUs use FP16 model precision. Using half the precision that CPUs run on \(FP32\), GPUs can be faster since twice as many operands can be processed at the same time.
+3. **Shared Components**: Since the CPU and Int. GPU is present on the same die, they share the same system memory, higher-level caches and a memory controller. This reduces memory latency by speeding up data transfer between the two devices
+4. **Applications of Computer Vision**: One of the broad areas of application in deep learning is Image and Video Processing. The ability to provide a specific chip to perform operations targeted to such use cases helps the system to increase the overall performance
 
 
 
