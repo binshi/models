@@ -132,5 +132,27 @@ The characteristics of the Integrated GPU are:
 3. **Shared Components**: Since the CPU and Int. GPU is present on the same die, they share the same system memory, higher-level caches and a memory controller. This reduces memory latency by speeding up data transfer between the two devices
 4. **Applications of Computer Vision**: One of the broad areas of application in deep learning is Image and Video Processing. The ability to provide a specific chip to perform operations targeted to such use cases helps the system to increase the overall performance
 
+### Advantages of such a model over an external GPU support: {#advantages-of-such-a-model-over-an-external-gpu-support-}
+
+1. **Improvement in Performance**
+   : No explicit data transfers are required between the CPU and GPU model.
+2. **Simpler Programming**
+   : With no separate hardware support for GPU, the programming becomes easier since explicit code management is not required
+3. **System Development**
+   : Having both computing models on the same die reduces communication costs and increased bandwidth, thus enabling better optimisation. Reduce data transfer
+4. **Cost Savings**
+   : Due to shared component model, it will help to reduce cost and thereby implementation would be easier. This is one of the vital benefits since the laptops or PCs with discrete graphics card would cost more.
+5. **Longer Battery Life**
+   : Better system management and the ability to segregate workloads, leads to an increased battery life low power instead
+
+### Now that we have seen the characteristics of an Integrated GPU, let us try and understand why we use these chips for the purposes of deep learning. {#now-that-we-have-seen-the-characteristics-of-an-integrated-gpu-let-us-try-and-understand-why-we-use-these-chips-for-the-purposes-of-deep-learning-}
+
+1. **Applications of Computer Vision**
+   : One of the broad areas of application in deep learning is Image and Video Processing. The ability to provide a specific chip to perform operations targeted to such use cases helps the system to increase the overall performance Powerful and flexible
+2. **Instruction Set Architecture \(ISA\)**
+   : The Instruction Set Architecture or the ISA, of the Processor Graphics SIMD execution units, is well suited to Deep Learning. This ISA offers rich data type support for 32-bit FP, 16-bit FP, 32-bit integer, a 16-bit integer with SIMD multiply-accumulate instructions. The ISA provides efficient memory block loads to quickly load data tiles for optimized convolution or optimized generalized matrix multiply implementations.
+3. **Memory Architecture**
+   : If you were to use an external graphics memory, for every epoch or iteration of data into your model, you would have to transfer memory from your system to the discrete one. This would increase latency and the power required by the system.
+
 
 
