@@ -124,7 +124,5 @@ VPU's have many advantages like better thermal characteristics and less power us
 Throughput = Images per Second/ TDP
 ```
 
-The combination of higher image per second to the lower power consumed gives a higher throughput.![](/assets/Screenshot 2020-03-28 at 6.51.42 PM.png)
-
-
+The combination of higher image per second to the lower power consumed gives a higher throughput.![](/assets/Screenshot 2020-03-28 at 6.51.42 PM.png)![](/assets/Screenshot 2020-03-28 at 6.54.55 PM.png)
 
