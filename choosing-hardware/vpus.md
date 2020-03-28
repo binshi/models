@@ -9,6 +9,7 @@
 * How to access the NCS2 on the DevCloud
 
 * How to run the same model on multiple devices at once using the Mult Device Plugin
+
 * How to use the Multi Device Plugin on the DevCloud
 
 The Neural Compute Stick is an accelerator and cannot run on it's own. It needs a CPU to coordicate the flow of data to and from the NCS. The CPU need not be a powerful one, since it will not actually be doing any calculations. So we can use a simple Atom Processor or even a Raspberry Pi.
@@ -95,10 +96,10 @@ Multi-Device plugin automatically assigns inference requests to available comput
 
 ### Reasons to choose a Multi-Device Plugin: {#reasons-to-choose-a-multi-device-plugin-}
 
-* **Distribute inference requests across multiple devices**
+* **Distribute inference requests across multiple devices**  
   : Having multiple NCS's will help distribute the load across all the devices. OpenVINO handles the distribution of the load internally and prevents any one of the device from becoming too busy.
 
-* **Increase the throughput of your entire system**
+* **Increase the throughput of your entire system**  
   : The volume of data that can be processed in a given time is known as the throughput of the system. While latency can be reduced by using faster hardware, an easy way to increase throughput is to have multiple devices share the load of the incoming data. In OpenVINO, this can be implemented by using the Multi plugin. Single devices are good for decreasing the latency but they cannot handle the inference of a large volume of data at a time. When using a single device, you are limited by the amount of load that that device can handle. This is where using multiple devices can help.
 
 ### Reasons for not choosing Multi-Device Plugin {#reasons-for-not-choosing-multi-device-plugin}
@@ -111,21 +112,19 @@ Multi-Device plugin automatically assigns inference requests to available comput
 
 VPU's have many advantages like better thermal characteristics and less power usage. In this page, you will learn about the various specifications of the VPU that make them ideal for using in an edge device.
 
-**Heat Generation**
+**Heat Generation**: With larger models, the number of layers increases in a neural network. Each layer of the neural network needs to perform a particular MAC operation which needs to access the CPU logic blocks. Thus with more complex layers, different blocks need to be accessed, causing improper use of CPU, which leads to more heat generation inside the CPU. Therefore, by introducing an accelerator for the CPU for a specific purpose, it helps to decrease the thermal dissipation inside the HPC.
 
-1. : With larger models, the number of layers increases in a neural network. Each layer of the neural network needs to perform a particular MAC operation which needs to access the CPU logic blocks. Thus with more complex layers, different blocks need to be accessed, causing improper use of CPU, which leads to more heat generation inside the CPU. Therefore, by introducing an accelerator for the CPU for a specific purpose, it helps to decrease the thermal dissipation inside the HPC.
-2. **Power Consumption:**
-   With the increase in layers, the power consumption for larger models also increases. Power consumption is one of the main bottlenecks in larger scale processors. For example, the TDP of a CPU ranges from 40-100 watts. Whereas in a Myriad processor can reduce up to 8 times in comparison.
-3. **Cost**
-   : The cost is dependent on the operating frequency. The operating frequency for a VPU is 600 Mhz. A VPU costs around 100$ for each device
-4. **Throughput:**The Throughput is calculated as follows:
+**Power Consumption: **With the increase in layers, the power consumption for larger models also increases. Power consumption is one of the main bottlenecks in larger scale processors. For example, the TDP of a CPU ranges from 40-100 watts. Whereas in a Myriad processor can reduce up to 8 times in comparison.
 
-   ```
-   Throughput = Images per Second/ TDP
+**Cost**: The cost is dependent on the operating frequency. The operating frequency for a VPU is 600 Mhz. A VPU costs around 100$ for each device. Quadratic in power to linear increase in operating frequerncy
 
-   ```
+**Throughput:**The Throughput is calculated as follows:
 
-   The combination of higher image per second to the lower power consumed gives a higher throughput.
+```
+Throughput = Images per Second/ TDP
+```
+
+The combination of higher image per second to the lower power consumed gives a higher throughput.![](/assets/Screenshot 2020-03-28 at 6.51.42 PM.png)
 
 
 
