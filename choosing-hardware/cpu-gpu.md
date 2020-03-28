@@ -36,5 +36,74 @@ Of course, each program or process is made up of many smaller sequences of instr
 
 > A **thread **or **thread of execution **is a stream of instructions. A thread is a _subprocess_, in the sense that a single process is typically made up of multiple threads.
 
+# Multithreading and Multiprocessing {#multithreading-and-multiprocessing}
 
+Now we can return to our question from the previous page: Why do we want to have multiple cores on a single processor? The advantage of having multiple cores is that the CPU can execute multiple processes simultaneously. Put another way, having multiple cores enables the CPU to do_multiprocessing_.
+
+> **Multiprocessing**is the act of executing multiple processes simultaneously.
+
+In addition to_multiprocessing_, you may have also heard the term_multithreading_. This is a very similar concept to multiprocessing.
+
+> **Multithreading**is the act of executing multiple threads simultaneously.
+
+## One thing at a time… {#one-thing-at-a-time-}
+
+A key concept you should understand is that each core of a CPU can only really be executing_one set of instructions at a time_. That means it can only be running one process \(or one thread of execution\) at a time.
+
+For example, suppose that you have two processes that you want to run. If you have a CPU with only one core, this CPU would have to switch back and forth between running the two processes—thus leading to a decrease in performance. To the user, it may seem like the processes are running "at the same time", but the reality is that the CPU must split its resources switching from one to the next.
+
+On the other hand, if you have a CPU with two cores, each core can be running its own separate process. Thus, you can genuinely have both processes running at the same time, with no decrease in performance. To distinguish between these scenarios, we use the terms_concurrency_and_parallelism_. If two processes are running in**parallel**, this means that they are_truly running at the same time_. In contrast, if two processes are running**concurrently**, this means that the CPU is cycling through them and only giving the_appearance_that the processes are running at the same time.
+
+## A Note on Multithreading and True Parallelism {#a-note-on-multithreading-and-true-parallelism}
+
+If you recall from above, we defined multithreading like this:
+
+> **Multithreading**is the act of executing multiple threads simultaneously.
+
+But in reality, when people use the term "multithreading", what they really mean is that the threads are being run_concurrently_—that is, the CPU is actually cycling through the threads and giving the_appearance_that they are being run at the same time. Although the threads are not truly running in parallel, this can nevertheless be very useful.
+
+For example, suppose that a particular thread starts running, but then requires some data before it can continue. You don't want your whole application to stall while waiting for this data. By cycling through multiple threads \(i.e.,_multithreading_\), you can keep other parts of the application running. Thus, you can ensure that, for instance, the interface remains responsive to the user, even while one of the application's threads is getting the required data.
+
+Different languages handle multiprocessing and multithreading differently. But often you will see that multiprocessing refers to true_parallelism_, while multithreading refers to_concurrency_.
+
+If you'd like to read more about these distinctions, we recommend the following articles:
+
+* [A gentle introduction to multithreading](https://www.internalpointers.com/post/gentle-introduction-multithreading)
+* [Multithreading vs. multiprocessing in Python](https://medium.com/contentsquare-engineering-blog/multithreading-vs-multiprocessing-in-python-ece023ad55a)
+
+# Intel CPU Architecture {#intel-cpu-architecture}
+
+Now let's go over some of the specifications and features of Intel processors, and talk about how these features affect their performance. As you watch this next video, notice that some of the differences in performance revolve around how the CPUs handle processes and threads—for example, through _multiprocessing _and _hyperthreading_.
+
+## Compatibility {#compatibility}
+
+Each new generation of Intel processors is a superset of its predecessors, providing backward compatibility with older chips and older software, while also adding new or enhanced features. This compatibility allows engineers, programmers, and development teams to reuse the software and software-development tools from earlier projects, protecting their investment in time and talent.
+
+## Multicore Performance {#multicore-performance}
+
+Most Intel processors now ship with 4 or more cores, which allows better performance and parallelism of tasks. As we discussed earlier in this lesson, having multiple cores allows for_multiprocessing_—the act of executing multiple processes simultaneously. Each core can be running a different process at the same time.
+
+## Hyperthreading {#hyperthreading}
+
+In addition to standard multiprocessing, you should be aware that Intel processors also have an ability to perform something called_hyperthreading_.
+
+> **Hyperthreading**divides each physical core into two_virtual cores_.
+
+For example, a CPU with four physical cores will be recognized \(by the computer's OS\) as having eight virtual cores. The virtual cores allow multiple threads of execution to be run on a single physical core at the same time.
+
+Hyperthreading can lead to a performance increase, although this improvement is not as great as if you used a CPU that had the equivalent number of real, physical cores.
+
+For example, a CPU that has four physical cores and uses hyperthreading would have**eight virtual cores**. If you were to run this system side-by-side with a CPU that has**eight physical cores**, the latter would likely have higher performance. Even though the four-core processor with hyperthreading has eight virtual cores, it is still limited to the resources of four physical cores—whereas the eight-core processor has twice the underlying resources.
+
+> **Note:**It's important to understand that the improvements in performance that come from multiprocessing and hyperthreading don't happen automatically—software developers must specifically write their code to take advantage of these hardware features.
+
+## Instruction Sets and Instruction Set Extensions {#instruction-sets-and-instruction-set-extensions}
+
+Every processor has an_instruction set_that provides the set of all instructions supported by that processor.
+
+> An **instruction set **is the set of instructions supported by a given processor.
+
+Put another way, we can say that _every CPU is an implementation of a particular instruction set architecture_. For example, a CPU will need to be able to accept an instruction to add two integers, and this would be specified in the instruction set. An example of a common instruction set is the [x86 instruction set](https://en.wikipedia.org/wiki/X86_instruction_listings#x87_floating-point_instructions), which has been in use since 1978.
+
+In addition to the basic instruction set, new processors can include [instruction set extensions](https://software.intel.com/en-us/isa-extensions) that, as the name implies, extend the set with additional instructions. These extensions can be used to improve the performance of specialized operations. For example, recent additions to the XEON Scalable line of processors include Vector Neural Net Instructions \(VNNIs\) that help speed up common Convolutional Neural Network \(CNN\) operations.
 
