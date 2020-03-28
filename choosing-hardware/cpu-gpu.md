@@ -52,7 +52,7 @@ A key concept you should understand is that each core of a CPU can only really b
 
 For example, suppose that you have two processes that you want to run. If you have a CPU with only one core, this CPU would have to switch back and forth between running the two processes—thus leading to a decrease in performance. To the user, it may seem like the processes are running "at the same time", but the reality is that the CPU must split its resources switching from one to the next.
 
-On the other hand, if you have a CPU with two cores, each core can be running its own separate process. Thus, you can genuinely have both processes running at the same time, with no decrease in performance. To distinguish between these scenarios, we use the terms_concurrency_and_parallelism_. If two processes are running in**parallel**, this means that they are_truly running at the same time_. In contrast, if two processes are running**concurrently**, this means that the CPU is cycling through them and only giving the_appearance_that the processes are running at the same time.
+On the other hand, if you have a CPU with two cores, each core can be running its own separate process. Thus, you can genuinely have both processes running at the same time, with no decrease in performance. To distinguish between these scenarios, we use the terms_concurrency\_and\_parallelism_. If two processes are running in**parallel**, this means that they are_truly running at the same time_. In contrast, if two processes are running**concurrently**, this means that the CPU is cycling through them and only giving the\_appearance\_that the processes are running at the same time.
 
 ## A Note on Multithreading and True Parallelism {#a-note-on-multithreading-and-true-parallelism}
 
@@ -60,7 +60,7 @@ If you recall from above, we defined multithreading like this:
 
 > **Multithreading**is the act of executing multiple threads simultaneously.
 
-But in reality, when people use the term "multithreading", what they really mean is that the threads are being run_concurrently_—that is, the CPU is actually cycling through the threads and giving the_appearance_that they are being run at the same time. Although the threads are not truly running in parallel, this can nevertheless be very useful.
+But in reality, when people use the term "multithreading", what they really mean is that the threads are being run_concurrently_—that is, the CPU is actually cycling through the threads and giving the\_appearance\_that they are being run at the same time. Although the threads are not truly running in parallel, this can nevertheless be very useful.
 
 For example, suppose that a particular thread starts running, but then requires some data before it can continue. You don't want your whole application to stall while waiting for this data. By cycling through multiple threads \(i.e.,_multithreading_\), you can keep other parts of the application running. Thus, you can ensure that, for instance, the interface remains responsive to the user, even while one of the application's threads is getting the required data.
 
@@ -73,7 +73,7 @@ If you'd like to read more about these distinctions, we recommend the following 
 
 # Intel CPU Architecture {#intel-cpu-architecture}
 
-Now let's go over some of the specifications and features of Intel processors, and talk about how these features affect their performance. As you watch this next video, notice that some of the differences in performance revolve around how the CPUs handle processes and threads—for example, through _multiprocessing _and _hyperthreading_.
+Now let's go over some of the specifications and features of Intel processors, and talk about how these features affect their performance. As you watch this next video, notice that some of the differences in performance revolve around how the CPUs handle processes and threads—for example, through _multiprocessing \_and \_hyperthreading_.
 
 ## Compatibility {#compatibility}
 
@@ -99,11 +99,21 @@ For example, a CPU that has four physical cores and uses hyperthreading would ha
 
 ## Instruction Sets and Instruction Set Extensions {#instruction-sets-and-instruction-set-extensions}
 
-Every processor has an_instruction set_that provides the set of all instructions supported by that processor.
+Every processor has an\_instruction set\_that provides the set of all instructions supported by that processor.
 
 > An **instruction set **is the set of instructions supported by a given processor.
 
 Put another way, we can say that _every CPU is an implementation of a particular instruction set architecture_. For example, a CPU will need to be able to accept an instruction to add two integers, and this would be specified in the instruction set. An example of a common instruction set is the [x86 instruction set](https://en.wikipedia.org/wiki/X86_instruction_listings#x87_floating-point_instructions), which has been in use since 1978.
 
 In addition to the basic instruction set, new processors can include [instruction set extensions](https://software.intel.com/en-us/isa-extensions) that, as the name implies, extend the set with additional instructions. These extensions can be used to improve the performance of specialized operations. For example, recent additions to the XEON Scalable line of processors include Vector Neural Net Instructions \(VNNIs\) that help speed up common Convolutional Neural Network \(CNN\) operations.
+
+# Specifications of CPUs {#specifications-of-cpus}
+
+Now that you have seen the different CPU architectures, let us try understanding what sort of factors plays a role in choosing the processor for your problem statement?
+
+1. **Clock Speed and the number of Cores**: Each processor chip comes with its own set of cores. It is important to choose the right number of cores for each application. Ideally, you want a processor with a greater number of cores, but at the same time, it should support a higher clock speed. Clock speed or clock rate is the frequency at which your processor can generate pulses. While choosing your processor, the number of cores is given higher preference, and then comes the clock speed.
+2. **Cost**: Each application or problem statement will be accompanied by its own set of budgetary constraints. It is important that you choose the best processor given your cost range while not compromising performance.
+3. **TDP**: Thermal Design Power is another important consideration. CPU chips with higher TDPs will consume more power and dissipate greater heat. If your application has power constraints, then you need to choose a processor with lower TDPs.
+
+
 
