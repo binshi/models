@@ -7,6 +7,7 @@
 * The characteristics of the Neural Compute Stick 2 \(which uses the Myriad-X Processor\)
 
 * How to access the NCS2 on the DevCloud
+
 * How to run the same model on multiple devices at once using the Mult Device Plugin
 * How to use the Multi Device Plugin on the DevCloud
 
@@ -20,8 +21,6 @@ The Neural Compute Stick is an accelerator and cannot run on it's own. It needs 
    A interface Unit is a part of the VPU that interacts with the Host device. This device could be a CPU or any other processing device. We would train our machine learning models on the Host Device and then run the inference on the VPU.
 3. **Hardware Accelerators:**
    The Hardware Accelerator has specific kernels which are used for image processing operations. These operations can include simple techniques of denoising to even algorithms for edge detection in images. 
-
-
 
 ![](/assets/Screenshot 2020-03-28 at 5.12.41 PM.png)The Characteristics of a **Myriad X** Processor Includes
 
@@ -72,4 +71,61 @@ The Intel Neural Compute Stick 2 or the Intel NCS2 is a plug and play developmen
   7.4 \(64 bit\).
 
 All of these features come in a small size of 72.5mm X 27mm X 14mm with the looks of standard thumb drive making it ideal for an easy plug-in into CPU, Raspberry Pi or any computing device with a USB port
+
+# Multi-Device Plugins {#multi-device-plugins}
+
+## Myriad Form Factors {#myriad-form-factors}
+
+The Myriad X chip is present of various form factors
+
+1. Single-Chip Mini-PCIe
+2. Dual chip M 2.280
+3. Four-way PCI express card
+4. Eight-way PCI express card
+
+These often to the system as different USB sticks plugged in and users can use applications that use them via OpenVino.
+
+One of these features is the **Multi-Device Plugin**
+
+## Multi-Device Plugin {#multi-device-plugin}
+
+![](/assets/Screenshot 2020-03-28 at 6.31.54 PM.png)
+
+Multi-Device plugin automatically assigns inference requests to available computational devices to execute the requests in parallel. There are several reasons to choose a Multi-Device Plugin
+
+### Reasons to choose a Multi-Device Plugin: {#reasons-to-choose-a-multi-device-plugin-}
+
+* **Distribute inference requests across multiple devices**
+  : Having multiple NCS's will help distribute the load across all the devices. OpenVINO handles the distribution of the load internally and prevents any one of the device from becoming too busy.
+
+* **Increase the throughput of your entire system**
+  : The volume of data that can be processed in a given time is known as the throughput of the system. While latency can be reduced by using faster hardware, an easy way to increase throughput is to have multiple devices share the load of the incoming data. In OpenVINO, this can be implemented by using the Multi plugin. Single devices are good for decreasing the latency but they cannot handle the inference of a large volume of data at a time. When using a single device, you are limited by the amount of load that that device can handle. This is where using multiple devices can help.
+
+### Reasons for not choosing Multi-Device Plugin {#reasons-for-not-choosing-multi-device-plugin}
+
+* **Devices are kept busy all the time**: One factor that you need to keep in mind when using a multi-device plugin is to keep all the devices busy most of the time. If your devices are left idle or enough data is not sent to the devices for inference, then you will not see any significant improvements in throughput.
+
+* **Minimal Increase in Performance in a few Cases**: Multi-Device Plugins might not always improve the performance of your system, especially if the devices do not get enough inference requests to execute.
+
+# VPU Specifications {#vpu-specifications}
+
+VPU's have many advantages like better thermal characteristics and less power usage. In this page, you will learn about the various specifications of the VPU that make them ideal for using in an edge device.
+
+**Heat Generation**
+
+1. : With larger models, the number of layers increases in a neural network. Each layer of the neural network needs to perform a particular MAC operation which needs to access the CPU logic blocks. Thus with more complex layers, different blocks need to be accessed, causing improper use of CPU, which leads to more heat generation inside the CPU. Therefore, by introducing an accelerator for the CPU for a specific purpose, it helps to decrease the thermal dissipation inside the HPC.
+2. **Power Consumption:**
+   With the increase in layers, the power consumption for larger models also increases. Power consumption is one of the main bottlenecks in larger scale processors. For example, the TDP of a CPU ranges from 40-100 watts. Whereas in a Myriad processor can reduce up to 8 times in comparison.
+3. **Cost**
+   : The cost is dependent on the operating frequency. The operating frequency for a VPU is 600 Mhz. A VPU costs around 100$ for each device
+4. **Throughput:**The Throughput is calculated as follows:
+
+   ```
+   Throughput = Images per Second/ TDP
+
+   ```
+
+   The combination of higher image per second to the lower power consumed gives a higher throughput.
+
+
 
