@@ -54,5 +54,32 @@ Now that we have seen the specifications, let us try and the factors that make F
 3. **Programmable Data Path**: With flexibility, also comes the use of programmable data path. This can help prevent unnecessary data movement. This results in latency reduction, and improved efficiency.
 4. **Latency Reduction**: Latency Reduction can also be caused due to Tightly Coupled High-bandwidth Memory.
 
+## Heterogeneous Plugin {#heterogeneous-plugin}
+
+The primary reason to choose the Hetero plugin is to set a secondary device as a fallback option in case the FPGA device does not support certain layers in your model. For instance, in an FPGA based edge computing system, the bitstream files that we load on to the FPGA might not support a few layers in your model. In these cases, the unsupported layers are executed on the host device, like a CPU.
+
+The table shows the list of supported layers for each device. You can see below that an inverse cosine layer is not supported by the FPGA, but the activation clamp layer is. With the use of HETERO PLUGIN, you can ensure that a model with unsupported layers can be run, primarily, on the FPGA.
+
+**Note**:_For more information on the supported layers, check out the docs_[_here_](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html)
+
+| Layers | GPU | CPU | VPU | FPGA |
+| :--- | :--- | :--- | :--- | :--- |
+| Abs | Supported | Supported | Not Supported | Not Supported |
+| Acos | Supported | Supported | Not Supported | **Not Supported** |
+| Acosh | Supported | Supported | Not Supported | Not Supported |
+| Activation Clamp | Supported | Supported | Supported | **Supported** |
+
+## HETERO PLUGIN Advantages and Disadvantages {#hetero-plugin-advantages-and-disadvantages}
+
+Here are the**advantages**of using a_HETERO PLUGIN_,
+
+1. Set A Secondary device as a Fallback device
+2. The ability to utilise all the available hardware efficiently to perform inference
+
+However, the**disadvantages**include,
+
+1. Transferring data and network takes time
+2. Greedy Behaviour
+
 
 
