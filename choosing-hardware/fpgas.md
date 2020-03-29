@@ -47,5 +47,12 @@ However, FPGAs come with their own set of disadvantages too.
 * **Power- Hungry**: Oftentimes, the power optimisation cannot be controlled by the designer of the FPGA board, thus making it more power-hungry. Thus an FPGA consumes more power than ASICs
 * **Design of FPGA circuit**: Selecting the right FPGA circuit is important. If you do not choose the right number of ICs, you will have to use the same number of limited ICs for all applications. To counter these issues, we can use better design methodologies in building an FPGA for products. This process is known as a reference design, which is a layout of the product itself.
 
+Now that we have seen the specifications, let us try and the factors that make FPGA ideal for deep learning applications
+
+1. **Highly Parallel Architecture**: As we have seen before, the highly parallel architecture like the individual block of CLBs help to provide a programmable data path
+2. **No fixed architecture**: Due to the presence of no rigid architecture, it can help to accommodate changes to your current neural network while providing greater performance
+3. **Programmable Data Path**: With flexibility, also comes the use of programmable data path. This can help prevent unnecessary data movement. This results in latency reduction, and improved efficiency.
+4. **Latency Reduction**: Latency Reduction can also be caused due to Tightly Coupled High-bandwidth Memory.
+
 
 
