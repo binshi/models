@@ -96,11 +96,9 @@ Multi-Device plugin automatically assigns inference requests to available comput
 
 ### Reasons to choose a Multi-Device Plugin: {#reasons-to-choose-a-multi-device-plugin-}
 
-* **Distribute inference requests across multiple devices**  
-  : Having multiple NCS's will help distribute the load across all the devices. OpenVINO handles the distribution of the load internally and prevents any one of the device from becoming too busy.
+* **Distribute inference requests across multiple devices**: Having multiple NCS's will help distribute the load across all the devices. OpenVINO handles the distribution of the load internally and prevents any one of the device from becoming too busy.
 
-* **Increase the throughput of your entire system**  
-  : The volume of data that can be processed in a given time is known as the throughput of the system. While latency can be reduced by using faster hardware, an easy way to increase throughput is to have multiple devices share the load of the incoming data. In OpenVINO, this can be implemented by using the Multi plugin. Single devices are good for decreasing the latency but they cannot handle the inference of a large volume of data at a time. When using a single device, you are limited by the amount of load that that device can handle. This is where using multiple devices can help.
+* **Increase the throughput of your entire system**: The volume of data that can be processed in a given time is known as the throughput of the system. While latency can be reduced by using faster hardware, an easy way to increase throughput is to have multiple devices share the load of the incoming data. In OpenVINO, this can be implemented by using the Multi plugin. Single devices are good for decreasing the latency but they cannot handle the inference of a large volume of data at a time. When using a single device, you are limited by the amount of load that that device can handle. This is where using multiple devices can help.
 
 ### Reasons for not choosing Multi-Device Plugin {#reasons-for-not-choosing-multi-device-plugin}
 
